@@ -1,5 +1,6 @@
-# TDP-Promocion
+# CalculadoraSimple
 Proyecto de promoción de la materia Tecnología de Programación, DCIC - UNS. 
+
 
 ## Convenciones para el uso de plugins personalizados
 * Todo plugin debe implementar la siguiente interface:
@@ -21,6 +22,7 @@ public interface PluginOperacion {
 * La interface debe estar dentro de un package ```operaciones``` , i.e. su nombre será ```operaciones.PluginOperacion```
 * Se asume que los plugins se desarrollan dentro del ```default package```
 * Si no se respetan las mencionadas convenciones, la carga del plugin fallará.
+
 
 ## Observaciones
 
