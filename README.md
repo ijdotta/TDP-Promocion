@@ -40,15 +40,15 @@ En resumen, la interface ```PluginOperacion``` era cargada por un classLoader de
 Como los ```classLoader``` delegan primero en sus padres, la solución (basada en una de las fuentes de más abajo) era definir al padre de ```PluginClassLoader``` con el mismo de la app principal y no redefinir el
 método ```loadClass``` sino el método ```findClass```.
 
-Asímismo, para enteder la dinámica de los plugins de la fuente mencionada anteriormente, me encargué de exportar el código proveído a ```.jar``` pero *nunca funcionó*.
+Asímismo, para enteder la dinámica de los plugins de la fuente mencionada anteriormente, me encargué de exportar el código proveído a ```.jar``` pero **nunca funcionó**.
 
 ### Sobre las operaciones
 Cabe destacar que:
 * La primera solución funcionaba perfectamente cuando se dejaban los archivos ```.java``` de las operaciones dentro del ```.jar``` porque así prescindía del uso del método
-```loadClass```.
+```loadClass```. En otras palabras, si se dejan los archivos ```.java``` de las operaciones dentro del ```.jar``` y no se añaden operaciones personalizadas posteriormente, entonces podría parecer equivocadamente que la app funciona.
 
 
 ## Fuentes
 Todo el código del proyecto es de mi autoría pero está basado en conceptos de las siguientes fuentes:
-* Una respuesta a mi consulta [Java ClassLoaders - Cast class to an interface](https://stackoverflow.com/questions/65100898/java-classloaders-cast-class-to-an-interface/65101060#65101060) en StackedOverFlow por [rzwitserloot](https://stackoverflow.com/users/768644/rzwitserloot)
+* Una respuesta a mi consulta [Java ClassLoaders - Cast class to an interface](https://stackoverflow.com/questions/65100898/java-classloaders-cast-class-to-an-interface/65101060#65101060) en StackOverFlow por [rzwitserloot](https://stackoverflow.com/users/768644/rzwitserloot)
 * El artículo [Adding Plugins to a Java Application](https://javaranch.com/journal/200607/Plugins.html) de [Ulf Dittmer](http://www.javaranch.com/contact.jsp#UlfDittmer)
