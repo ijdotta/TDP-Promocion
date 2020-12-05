@@ -2,7 +2,7 @@
 Proyecto de promoción de la materia Tecnología de Programación, DCIC - UNS. 
 
 
-## Convenciones para el uso de plugins personalizados
+## Convenciones para el uso de plugins personalizados :handshake:
 * Todo plugin debe implementar la siguiente interface:
 ```
 package logica;
@@ -24,9 +24,9 @@ public interface PluginOperacion {
 * Si no se respetan las mencionadas convenciones, la carga del plugin fallará.
 
 
-## Observaciones
+## Observaciones :eyes:
 
-### Sobre el ```ClassLoader```
+### Sobre el ```ClassLoader``` :thinking:
 En un primer momento intenté reutilizar la clase PluginClassLoader que obtuve de [Adding Plugins to a Java Application](https://javaranch.com/journal/200607/Plugins.html).
 Todo funcionaba bien dentro del IDE Eclipse, pero fallaba cuando lo exportaba a jar. 
 El problema principal era la excepción:
@@ -44,13 +44,13 @@ método ```loadClass``` sino el método ```findClass```.
 
 Asímismo, para enteder la dinámica de los plugins de la fuente mencionada anteriormente, me encargué de exportar el código proveído a ```.jar``` pero **nunca funcionó**.
 
-### Sobre las operaciones
+### Sobre las operaciones :nerd_face: 
 Cabe destacar que:
 * La primera solución funcionaba perfectamente cuando se dejaban los archivos ```.java``` de las operaciones dentro del ```.jar``` porque así prescindía del uso del método
 ```loadClass```. En otras palabras, si se dejan los archivos ```.java``` de las operaciones dentro del ```.jar``` y no se añaden operaciones personalizadas posteriormente, entonces podría parecer equivocadamente que la app funciona.
 
 
-## Fuentes
-Todo el código del proyecto es de mi autoría pero está basado en conceptos de las siguientes fuentes:
+## Fuentes :speaking_head:
+Todo el código del proyecto es de mi autoría pero está basado en información de las siguientes fuentes:
 * Una respuesta a mi consulta [Java ClassLoaders - Cast class to an interface](https://stackoverflow.com/questions/65100898/java-classloaders-cast-class-to-an-interface/65101060#65101060) en StackOverFlow por [rzwitserloot](https://stackoverflow.com/users/768644/rzwitserloot)
 * El artículo [Adding Plugins to a Java Application](https://javaranch.com/journal/200607/Plugins.html) de [Ulf Dittmer](http://www.javaranch.com/contact.jsp#UlfDittmer)
