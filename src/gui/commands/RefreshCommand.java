@@ -7,7 +7,7 @@ import javax.swing.JComboBox;
 
 import gui.components.CommandTextField;
 import logica.OperacionesManager;
-import operaciones.PluginOperacion;
+import logica.PluginOperacion;
 
 public class RefreshCommand implements Command {
 

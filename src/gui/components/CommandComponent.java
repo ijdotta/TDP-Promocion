@@ -5,13 +5,13 @@ import gui.commands.Command;
 public interface CommandComponent {
 	
 	/**
-	 * Establece el comando asociado a la componente.
+	 * Asocia un comando a la componente.
 	 * @param command Comando asociado.
 	 */
 	public void setCommand(Command command);
 	
 	/**
-	 * Ejecuta el comando asociado.
+	 * Envía el mensaje de ejecución al comando asociado.
 	 */
 	public void executeCommand();
 

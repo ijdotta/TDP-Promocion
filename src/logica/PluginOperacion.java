@@ -1,4 +1,4 @@
-package operaciones;
+package logica;
 
 public interface PluginOperacion {
 

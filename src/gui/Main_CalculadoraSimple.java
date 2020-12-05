@@ -29,14 +29,15 @@ import gui.components.CommandButton;
 import gui.components.CommandComponent;
 import gui.components.CommandTextField;
 import logica.OperacionesManager;
-import operaciones.PluginOperacion;
+import logica.PluginOperacion;
 
 /**
  * Class GUI - Interfaz gráfica de la calculadora.
+ * 
  * @author Ignacio Joaquín Dotta
  *
  */
-public class GUI_Calc_custom_loader extends JFrame {
+public class Main_CalculadoraSimple extends JFrame {
 
 	/**
 	 * 
@@ -57,7 +58,7 @@ public class GUI_Calc_custom_loader extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUI_Calc_custom_loader frame = new GUI_Calc_custom_loader();
+					Main_CalculadoraSimple frame = new Main_CalculadoraSimple();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -69,7 +70,7 @@ public class GUI_Calc_custom_loader extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GUI_Calc_custom_loader() {
+	public Main_CalculadoraSimple() {
 
 		inicializarLogger();
 		operacionesManager = new OperacionesManager();
@@ -80,6 +81,7 @@ public class GUI_Calc_custom_loader extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		setResizable(false);
 
 		// Colors
 		Color btn_bg_color = Color.WHITE;
@@ -90,12 +92,12 @@ public class GUI_Calc_custom_loader extends JFrame {
 		Dimension btn_aux_dim = new Dimension(35, dflt_comp_height);
 		Dimension combo_dim = new Dimension(200, dflt_comp_height);
 
-		// Paneles
+		// Panels
 		JPanel panel_operacion = new JPanel();
 		JPanel panel_io = new JPanel();
 		JPanel panel_main = new JPanel();
 
-		// Componentes
+		// Components
 		CommandTextField txt_input_n1 = new CommandTextField();
 		CommandTextField txt_input_n2 = new CommandTextField();
 		CommandButton btn_calculate = new CommandButton();
@@ -107,20 +109,20 @@ public class GUI_Calc_custom_loader extends JFrame {
 		Command cmd_calculate = new CalculateCommand(this, txt_input_n1, txt_input_n2);
 		Command cmd_refresh = new RefreshCommand(operacionesManager, combo_operaciones, txt_input_n2);
 
-		// btn refresh
+		// btn: refresh
 		btn_refresh.setCommand(cmd_refresh);
 		btn_refresh.setBackground(btn_bg_color);
 		btn_refresh.setPreferredSize(btn_aux_dim);
-		btn_refresh.setIcon(getScaledImageIcon(GUI_Calc_custom_loader.class.getResource("/img/refresh_icon.png")));
+		btn_refresh.setIcon(getScaledImageIcon(Main_CalculadoraSimple.class.getResource("/img/refresh_icon.png")));
 		btn_refresh.addActionListener(new DefaultCommandComponentListener());
 
-		// btn Calculate
+		// btn: Calculate
 		btn_calculate.setCommand(cmd_calculate);
 		btn_calculate.setText("CALC");
 		btn_calculate.setBackground(btn_bg_color);
 		btn_calculate.addActionListener(new DefaultCommandComponentListener());
 
-		// combobox
+		// combobox: operaciones
 		cmd_refresh.execute();
 		combo_operaciones.setBackground(btn_bg_color);
 		combo_operaciones.setPreferredSize(combo_dim);
@@ -143,14 +145,14 @@ public class GUI_Calc_custom_loader extends JFrame {
 		txt_input_n2.setCommand(cmd_calculate);
 		txt_output.setEditable(false);
 
-		// Panel operacion
+		// Panel: operacion
 		panel_operacion = new JPanel();
 		panel_operacion.setLayout(new BorderLayout());
 		panel_operacion.add(btn_refresh, BorderLayout.WEST);
 		panel_operacion.add(combo_operaciones, BorderLayout.CENTER);
 		panel_operacion.setPreferredSize(new Dimension(dflt_panel_width, dflt_comp_height));
 
-		// Panel io
+		// Panel: io
 		panel_io.setLayout(new GridLayout(3, 1));
 		panel_io.add(txt_input_n1);
 		panel_io.add(txt_input_n2);
@@ -158,7 +160,7 @@ public class GUI_Calc_custom_loader extends JFrame {
 		panel_io.setPreferredSize(
 				new Dimension(dflt_panel_width, ((GridLayout) panel_io.getLayout()).getRows() * dflt_comp_height));
 
-		// Panel ppal
+		// Panel: main
 		panel_main.setLayout(new BorderLayout());
 		panel_main.add(panel_operacion, BorderLayout.NORTH);
 		panel_main.add(panel_io, BorderLayout.CENTER);
@@ -242,10 +244,6 @@ public class GUI_Calc_custom_loader extends JFrame {
 		Image newImg = img.getScaledInstance(20, 20, java.awt.Image.SCALE_SMOOTH);
 		icon.setImage(newImg);
 		return icon;
-	}
-
-	public void enableOperationInputFields(PluginOperacion operacion) {
-
 	}
 
 }
