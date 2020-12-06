@@ -42,7 +42,7 @@ En resumen, la interface ```PluginOperacion``` era cargada por un classLoader de
 Como los ```classLoader``` delegan primero en sus padres, la solución (basada en una de las fuentes de más abajo) era definir al padre de ```PluginClassLoader``` con el mismo de la app principal y no redefinir el
 método ```loadClass``` sino el método ```findClass```.
 
-Asímismo, para enteder la dinámica de los plugins de la fuente mencionada anteriormente, me encargué de exportar el código proveído a ```.jar``` pero **nunca funcionó**.
+Asímismo, para enteder la dinámica de los plugins de la fuente mencionada anteriormente, me encargué de exportar el código provisto a ```.jar``` pero **nunca funcionó**.
 
 ### Sobre las operaciones :nerd_face: 
 Cabe destacar que:
