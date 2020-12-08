@@ -37,7 +37,7 @@ java.lang.ClassCastException: class operaciones.Suma cannot be cast to class ope
         at gui.GUI_CalcSimple.<init>(GUI_CalcSimple.java:124)
         at gui.GUI_CalcSimple$1.run(GUI_CalcSimple.java:60)
 ```
-Interpreté que el problema estaba en los diferentes classLoaders que Java utiliza para cargar las clases (y que además las clases no se distinguen solo por su nombre completo, sino también por su classLoader).
+Interpreté que el problema estaba en los diferentes class loaders que Java utiliza para cargar las clases (y que además las clases no se distinguen solo por su nombre completo, sino también por su class loader).
 En resumen, la interface ```PluginOperacion``` era cargada por un classLoader del sistema y los plugins por el ```PluginClassLoader``` personalizado. Entonces java no reconocía a los plugins como subclases de ```PluginOperacion```.
 Como los ```classLoader``` delegan primero en sus padres, la solución (basada en una de las fuentes de más abajo) era definir al padre de ```PluginClassLoader``` con el mismo de la app principal y no redefinir el
 método ```loadClass``` sino el método ```findClass```.
@@ -47,7 +47,7 @@ Asímismo, para enteder la dinámica de los plugins de la fuente mencionada ante
 ### Sobre las operaciones :nerd_face: 
 Cabe destacar que:
 * La primera solución funcionaba perfectamente cuando se dejaban los archivos ```.java``` de las operaciones dentro del ```.jar``` porque así prescindía del uso del método
-```loadClass```. En otras palabras, si se dejan los archivos ```.java``` de las operaciones dentro del ```.jar``` y no se añaden operaciones personalizadas posteriormente, entonces podría parecer equivocadamente que la app funciona.
+```loadClass```. En otras palabras, *creo que* si se dejan los archivos ```.java``` de las operaciones dentro del ```.jar``` y no se añaden operaciones personalizadas posteriormente, entonces podría parecer equivocadamente que la app funciona.
 
 
 ## Fuentes :speaking_head:
