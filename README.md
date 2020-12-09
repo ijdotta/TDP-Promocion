@@ -21,6 +21,7 @@ public interface PluginOperacion {
 ```
 * La interface debe estar dentro de un package ```logica``` , i.e. su nombre será ```logica.PluginOperacion```
 * Se asume que los plugins se desarrollan dentro del ```default package```
+* Los ```.class``` de los plugins personalizados deben guardarse en la carpeta "plugins" que se encuentra junto al ejecutable dentro de "bin"
 * Si no se respetan las mencionadas convenciones, la carga del plugin fallará.
 
 
@@ -47,7 +48,7 @@ Asímismo, para enteder la dinámica de los plugins de la fuente mencionada ante
 ### Sobre las operaciones :nerd_face: 
 Cabe destacar que:
 * La primera solución funcionaba perfectamente cuando se dejaban los archivos ```.java``` de las operaciones dentro del ```.jar``` porque así prescindía del uso del método
-```loadClass```. En otras palabras, *creo que* si se dejan los archivos ```.java``` de las operaciones dentro del ```.jar``` y no se añaden operaciones personalizadas posteriormente, entonces podría parecer equivocadamente que la app funciona.
+```loadClass```. En otras palabras, *creo* que si se dejan los archivos ```.java``` de las operaciones dentro del ```.jar``` y no se añaden operaciones personalizadas posteriormente, entonces podría parecer equivocadamente que la app funciona.
 
 
 ## Fuentes :speaking_head:
